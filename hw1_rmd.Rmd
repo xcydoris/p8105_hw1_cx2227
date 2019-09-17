@@ -1,6 +1,7 @@
 ---
 title: "p8105_hw1_cx2227"
-date: "9/17/2019"
+author: "Chuyue Xiang"
+date: 2019-09-17
 output: github_document
 ---
 
@@ -8,6 +9,8 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
+
+# Problem 1
 
 ```{r problem_1}
 p1_df = tibble(
@@ -24,6 +27,36 @@ mean(pull(p1_df, vec_factor))
 
 ```
 It only worked when taking the mean of "norm_samp" and "norm_samp_pos" and did not work when taking the mean of "vec_char" and "vec_factor".
+
+
+## Converting variables from one type to another
+
+```{r problem1_part2, warning=FALSE}
+
+### convert the logical vector to numeric, and multiply the random sample by the result
+as.numeric(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
+
+### convert the logical vector to a factor, and multiply the random sample by the result
+as.factor(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
+
+### convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result
+as.numeric(as.factor(pull(p1_df, norm_samp_pos))) * pull(p1_df, norm_samp)
+```
+
+# Problem 2 
+
+```{r}
+p2_df = tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  norm_samp_pos1 = x + y > 1,
+  num_vec = as.numeric (norm_samp_pos1),
+  fac_vec = as.factor (norm_samp_pos1)
+)
+```
+
+
+
 
 
 

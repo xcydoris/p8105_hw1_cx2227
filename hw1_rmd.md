@@ -1,6 +1,9 @@
 p8105\_hw1\_cx2227
 ================
-9/17/2019
+Chuyue Xiang
+2019-09-17
+
+# Problem 1
 
 ``` r
 p1_df = tibble(
@@ -13,7 +16,7 @@ p1_df = tibble(
 mean(pull(p1_df, norm_samp))
 ```
 
-    ## [1] 0.1587036
+    ## [1] 0.6882971
 
 ``` r
 mean(pull(p1_df, norm_samp_pos))
@@ -41,4 +44,42 @@ mean(pull(p1_df, vec_factor))
 
 It only worked when taking the mean of “norm\_samp” and
 “norm\_samp\_pos” and did not work when taking the mean of
-“vec\_char” and “vec\_factor”.
+“vec\_char” and
+“vec\_factor”.
+
+## Converting variables from one type to another
+
+``` r
+### convert the logical vector to numeric, and multiply the random sample by the result
+as.numeric(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
+```
+
+    ## [1] 2.9134452 0.0000000 0.8361247 0.0000000 0.9774486 0.0000000 0.1667729
+    ## [8] 2.0311971
+
+``` r
+### convert the logical vector to a factor, and multiply the random sample by the result
+as.factor(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
+```
+
+    ## [1] NA NA NA NA NA NA NA NA
+
+``` r
+### convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result
+as.numeric(as.factor(pull(p1_df, norm_samp_pos))) * pull(p1_df, norm_samp)
+```
+
+    ## [1]  5.8268904 -0.0930207  1.6722493 -0.4622822  1.9548973 -0.8633091
+    ## [7]  0.3335458  4.0623942
+
+# Problem 2
+
+``` r
+p2_df = tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  norm_samp_pos1 = x + y > 1,
+  num_vec = as.numeric (norm_samp_pos1),
+  fac_vec = as.factor (norm_samp_pos1)
+)
+```
