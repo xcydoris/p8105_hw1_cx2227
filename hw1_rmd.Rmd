@@ -55,6 +55,16 @@ p2_df = tibble(
 )
 ```
 
+## Short Description
+- the number of row in `p2_df` is `r nrow(p2_df)` ;
+- the number of column in `p2_df` is `r ncol(p2_df)` ;
+- the mean of x is `r mean(pull( p2_df, x))` ; 
+- the median of x is `r median (pull(p2_df, x))` ;
+- the standard deviation of x is `r sd(pull ( p2_df, x))` ;
+- the proportion of cases for which x + y > 1 is `r mean(pull(p2_df, norm_samp_pos1))`
+
+
+
 
 
 

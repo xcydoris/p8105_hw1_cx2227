@@ -16,13 +16,13 @@ p1_df = tibble(
 mean(pull(p1_df, norm_samp))
 ```
 
-    ## [1] 0.6882971
+    ## [1] 0.01966987
 
 ``` r
 mean(pull(p1_df, norm_samp_pos))
 ```
 
-    ## [1] 0.625
+    ## [1] 0.5
 
 ``` r
 mean(pull(p1_df, vec_char))
@@ -54,8 +54,8 @@ It only worked when taking the mean of “norm\_samp” and
 as.numeric(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
 ```
 
-    ## [1] 2.9134452 0.0000000 0.8361247 0.0000000 0.9774486 0.0000000 0.1667729
-    ## [8] 2.0311971
+    ## [1] 0.35777314 0.00000000 0.01184928 1.26099081 0.00000000 0.00000000
+    ## [7] 0.00000000 1.68180265
 
 ``` r
 ### convert the logical vector to a factor, and multiply the random sample by the result
@@ -69,8 +69,8 @@ as.factor(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
 as.numeric(as.factor(pull(p1_df, norm_samp_pos))) * pull(p1_df, norm_samp)
 ```
 
-    ## [1]  5.8268904 -0.0930207  1.6722493 -0.4622822  1.9548973 -0.8633091
-    ## [7]  0.3335458  4.0623942
+    ## [1]  0.71554628 -0.95076293  0.02369857  2.52198162 -1.05161082 -0.44728214
+    ## [7] -0.70540104  3.36360531
 
 # Problem 2
 
@@ -83,3 +83,12 @@ p2_df = tibble(
   fac_vec = as.factor (norm_samp_pos1)
 )
 ```
+
+## Short Description
+
+  - the number of row in `p2_df` is 500 ;
+  - the number of column in `p2_df` is 5 ;
+  - the mean of x is 0.020677 ;
+  - the median of x is 0.0277886 ;
+  - the standard deviation of x is 1.0309878 ;
+  - the proportion of cases for which x + y \> 1 is 0.266
