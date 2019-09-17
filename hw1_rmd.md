@@ -16,13 +16,13 @@ p1_df = tibble(
 mean(pull(p1_df, norm_samp))
 ```
 
-    ## [1] -0.1736948
+    ## [1] -0.4827447
 
 ``` r
 mean(pull(p1_df, norm_samp_pos))
 ```
 
-    ## [1] 0.5
+    ## [1] 0.125
 
 ``` r
 mean(pull(p1_df, vec_char))
@@ -54,8 +54,8 @@ It only worked when taking the mean of “norm\_samp” and
 as.numeric(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
 ```
 
-    ## [1] 0.1228542 0.0000000 0.0000000 0.6611320 0.0000000 0.7919614 0.6549016
-    ## [8] 0.0000000
+    ## [1] 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+    ## [8] 0.7076808
 
 ``` r
 ### convert the logical vector to a factor, and multiply the random sample by the result
@@ -69,8 +69,8 @@ as.factor(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
 as.numeric(as.factor(pull(p1_df, norm_samp_pos))) * pull(p1_df, norm_samp)
 ```
 
-    ## [1]  0.2457085 -0.9862340 -1.1928174  1.3222641 -0.8480514  1.5839228
-    ## [7]  1.3098032 -0.5933050
+    ## [1] -0.88296677 -1.29096260 -0.03667512 -0.22762818 -0.68163273 -0.48549384
+    ## [7] -0.96427944  1.41536156
 
 # Problem 2
 
@@ -88,10 +88,10 @@ p2_df = tibble(
 
   - the number of row in `p2_df` is 500 ;
   - the number of column in `p2_df` is 5 ;
-  - the mean of x is -0.0496637 ;
-  - the median of x is -0.1400508 ;
-  - the standard deviation of x is 0.9900886 ;
-  - the proportion of cases for which x + y \> 1 is 0.226
+  - the mean of x is -0.0067019 ;
+  - the median of x is -0.0916441 ;
+  - the standard deviation of x is 1.0583745 ;
+  - the proportion of cases for which x + y \> 1 is 0.256
 
 ## Scatterplot
 
@@ -122,4 +122,13 @@ ggplot(p2_df, aes( x = x, y = y, color = fac_vec)) + geom_point()
     False and the blue represents True.
   - The second scatterplot has a numbered blue bar representing from
     0.00 to 1.00, with darker blue dots gathered in the lower left
-    corner and lighter blue gathered in the upper right corner.
+    corner and lighter blue gathered in the upper right
+corner.
+
+<!-- end list -->
+
+``` r
+ggsave("Problem2_1stplot.pdf", plot = ggplot(p2_df, aes( x = x, y = y, color = norm_samp_pos1)) + geom_point())
+```
+
+    ## Saving 7 x 5 in image

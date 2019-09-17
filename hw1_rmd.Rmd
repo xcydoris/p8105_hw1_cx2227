@@ -80,6 +80,11 @@ ggplot(p2_df, aes( x = x, y = y, color = fac_vec)) + geom_point()
 - The first and third scatterplot have two colors: the red represents False and the blue represents True.
 - The second scatterplot has a numbered blue bar representing from 0.00 to 1.00, with darker blue dots gathered in the lower left corner and lighter blue gathered in the upper right corner.
 
+```{r}
+ggsave("Problem2_1stplot.pdf", plot = ggplot(p2_df, aes( x = x, y = y, color = norm_samp_pos1)) + geom_point())
+```
+
+
 
 
 
