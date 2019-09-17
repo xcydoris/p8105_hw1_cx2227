@@ -63,6 +63,20 @@ p2_df = tibble(
 - the standard deviation of x is `r sd(pull ( p2_df, x))` ;
 - the proportion of cases for which x + y > 1 is `r mean(pull(p2_df, norm_samp_pos1))`
 
+## Scatterplot
+```{r}
+# Scatterplot for logical vector
+ggplot(p2_df, aes( x = x, y = y, color = norm_samp_pos1)) + geom_point()
+
+# Scatterplot for numeric vector
+ggplot(p2_df, aes( x = x, y = y, color = num_vec)) + geom_point()
+
+# Scatterplot for factor vector
+ggplot(p2_df, aes( x = x, y = y, color = fac_vec)) + geom_point()
+
+```
+
+
 
 
 

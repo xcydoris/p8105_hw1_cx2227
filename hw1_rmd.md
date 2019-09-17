@@ -16,7 +16,7 @@ p1_df = tibble(
 mean(pull(p1_df, norm_samp))
 ```
 
-    ## [1] 0.01966987
+    ## [1] 0.0595801
 
 ``` r
 mean(pull(p1_df, norm_samp_pos))
@@ -54,8 +54,8 @@ It only worked when taking the mean of “norm\_samp” and
 as.numeric(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
 ```
 
-    ## [1] 0.35777314 0.00000000 0.01184928 1.26099081 0.00000000 0.00000000
-    ## [7] 0.00000000 1.68180265
+    ## [1] 0.1769692 2.9628347 0.0000000 0.8853240 0.0000000 0.0000000 0.0000000
+    ## [8] 0.1561864
 
 ``` r
 ### convert the logical vector to a factor, and multiply the random sample by the result
@@ -69,8 +69,8 @@ as.factor(pull(p1_df, norm_samp_pos)) * pull(p1_df, norm_samp)
 as.numeric(as.factor(pull(p1_df, norm_samp_pos))) * pull(p1_df, norm_samp)
 ```
 
-    ## [1]  0.71554628 -0.95076293  0.02369857  2.52198162 -1.05161082 -0.44728214
-    ## [7] -0.70540104  3.36360531
+    ## [1]  0.3539384  5.9256693 -0.3395896  1.7706480 -0.7889046 -2.1192679
+    ## [7] -0.4569115  0.3123728
 
 # Problem 2
 
@@ -88,7 +88,30 @@ p2_df = tibble(
 
   - the number of row in `p2_df` is 500 ;
   - the number of column in `p2_df` is 5 ;
-  - the mean of x is 0.020677 ;
-  - the median of x is 0.0277886 ;
-  - the standard deviation of x is 1.0309878 ;
-  - the proportion of cases for which x + y \> 1 is 0.266
+  - the mean of x is 0.0077056 ;
+  - the median of x is 0.0305381 ;
+  - the standard deviation of x is 0.9899975 ;
+  - the proportion of cases for which x + y \> 1 is 0.236
+
+## Scatterplot
+
+``` r
+# Scatterplot for logical vector
+ggplot(p2_df, aes( x = x, y = y, color = norm_samp_pos1)) + geom_point()
+```
+
+![](hw1_rmd_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+``` r
+# Scatterplot for numeric vector
+ggplot(p2_df, aes( x = x, y = y, color = num_vec)) + geom_point()
+```
+
+![](hw1_rmd_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
+
+``` r
+# Scatterplot for factor vector
+ggplot(p2_df, aes( x = x, y = y, color = fac_vec)) + geom_point()
+```
+
+![](hw1_rmd_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->
