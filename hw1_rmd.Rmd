@@ -1,0 +1,21 @@
+---
+title: "p8105_hw1_cx2227"
+date: "9/17/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r problem_1}
+p1_df = tibble(
+  norm_samp = rnorm(8),
+  norm_samp_pos = norm_samp > 0,
+  vec_char = c ("1", "2", "3", "4", "5", "6", "7", "8"),
+  vec_factor = factor(c("A", "A", "A", "B", "B", "B", "C", "C"))
+)
+
+```
+
